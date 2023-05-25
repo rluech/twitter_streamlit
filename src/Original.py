@@ -39,7 +39,7 @@ for df in df_list:
 ############################# Title & intro ################    
     
 st.title("Twitter Celebrities")
-st.header("**header**")
+#st.header("**header**")
 if st.checkbox("Who are they?"):
         st.subheader("General statistics")
         st.dataframe(data=df_stat)
@@ -57,13 +57,13 @@ if st.checkbox("Trends"):
 
 
 
-st.subheader("tweets timeseries - compare your fav cel")
+st.header("Tweets timeseries")
 ############# Giving some options ############################
 BO = False
 BG = False
 EM = False
 JB = False
-st.subheader("Choose your fav./s:")
+st.subheader("Choose your favourite:")
 # Setting up columns
 left_column, middle_column, right_column = st.columns([1, 1, 1])
 
@@ -126,7 +126,7 @@ if JB == True:
             #"Hashtag : %{marker.size:,}" +
             "<extra></extra>"))
 fig.update_layout(
-    title={"text": "tweets timeseries - compare your fav cel", "font": {"size": 26}},
+    #title={"text": "tweets timeseries - compare your fav cel", "font": {"size": 26}},
     xaxis={"title": {"text": "Time", "font": {"size": 16}}},
     yaxis={"title": {"text": "number of tweets", "font": {"size": 16}}},
     paper_bgcolor='rgb(254, 246, 224)',
@@ -193,7 +193,7 @@ if JB == True:
         
         
 ############################### Fig 2 #######################
-st.subheader("wordcloud-text or mentions")
+st.header("Wordcloud")
 
 # Setting up columns
 left_column, middle_column, right_column = st.columns([1, 0.1, 1])
@@ -247,19 +247,19 @@ tweets_wordcloud_plot(name_df[name], cr)
 
 
 ############################# Fig 3 #########################
-st.subheader('compare people integration rate')
+#st.subheader('compare people integration rate')
 
 
 
 ############################ Fig 4 #################
-st.subheader('Sentiment. over time')
+st.header('Sentiment over time')
 #st.subheader('polarity-subjectivity')
 ############# Giving some options ############################
 BO_ = False
 BG_ = False
 EM_ = False
 JB_ = False
-st.subheader("Choose your fav./s:")
+st.subheader("Choose your favourite:")
 # Setting up columns
 left_column, middle_column, right_column = st.columns([1, 1, 1])
 
