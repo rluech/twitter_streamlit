@@ -57,7 +57,7 @@ if st.checkbox("Trends"):
 
 
 
-st.subheader("tweets timeseries - compare your fav cel*")
+st.subheader("tweets timeseries - compare your fav cel")
 ############# Giving some options ############################
 BO = False
 BG = False
@@ -72,8 +72,6 @@ if left_column.checkbox("All"):
     BG = True
     EM = True
     JB = True
-else:
-    All = False
 if middle_column.checkbox("Barack Obama"):
     BO = True
 if right_column.checkbox("Bill Gates"):
@@ -135,10 +133,9 @@ fig.update_layout(
     plot_bgcolor='rgb(254, 246, 224)',
     #hovermode="x unified",
 )
-
     
 st.plotly_chart(fig)
-##################### Hashtag ############
+################################# Hashtag ###############################
 def hashtags_time(df,Y_M):
     hashtags_Y_M = []
     for hashtag in df[df['YY-MM'] == Y_M]['hashtags']:
@@ -147,36 +144,54 @@ def hashtags_time(df,Y_M):
                 hashtags_Y_M.append(eval(hashtag))
     return hashtags_Y_M
 
-if All == False:
-    if BO == True:
+
+if BO == True:
         x_time= dfBO['YY-MM'].copy().unique()
         x_time.sort()
         Time = x_time
-        df_A = dfBO
-    if BG == True:
+        exact_BO = st.selectbox("choose a Year", x_time)
+        Y = hashtags_time(dfBO,exact_BO)
+        list_hash = []
+        for list_ in Y:
+            for string_ in list_:
+                list_hash.append(string_)
+        st.text("Hashtages by B.O.  used at that time: " +str(set(list_hash)))
+if BG == True:
         x_time= dfBG['YY-MM'].copy().unique()
         x_time.sort()
         Time = x_time
-        df_A = dfBG
-    if EM == True:
+        exact_BG = st.selectbox("choose a Year", x_time)
+        Y = hashtags_time(dfBG,exact_BG)
+        list_hash = []
+        for list_ in Y:
+            for string_ in list_:
+                list_hash.append(string_)
+        st.text("Hashtages by B.G.  used at that time: " +str(set(list_hash)))
+if EM == True:
         x_time= dfEM['YY-MM'].copy().unique()
         x_time.sort()
         Time = x_time
-        df_A = dfEM
-    if JB == True:
+        exact_EM = st.selectbox("choose a Year", x_time)
+        Y = hashtags_time(dfEM,exact_EM)
+        list_hash = []
+        for list_ in Y:
+            for string_ in list_:
+                list_hash.append(string_)
+        st.text("Hashtages by E.M.  used at that time: " +str(set(list_hash)))
+if JB == True:
         x_time= dfJB['YY-MM'].copy().unique()
         x_time.sort()
         Time = x_time
-        df_A = dfJB
-    exact = st.selectbox("choose a Year", Time)
-
-    Y = hashtags_time(df_A,exact)
-    list_hash = []
-    for list_ in Y:
-        for string_ in list_:
-            list_hash.append(string_)
-    st.text("Hashtages used at that time: " +str(set(list_hash)))
-
+        exact_JB = st.selectbox("choose a Year", x_time)
+        Y = hashtags_time(dfJB,exact_JB)
+        list_hash = []
+        for list_ in Y:
+            for string_ in list_:
+                list_hash.append(string_)
+        st.text("Hashtages by J.B.  used at that time: " +str(set(list_hash)))
+        
+        
+        
 ############################### Fig 2 #######################
 st.subheader("wordcloud-text or mentions")
 
