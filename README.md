@@ -1,20 +1,13 @@
-# Project Name
+# Twitter Streamlit Dashboard
 
-example image:
-
-
-![alternative text](reports/img/pic01.jpg)
-
-
-#### -- Project Status: [Active, On-Hold, Completed]
 
 ## Project Intro/Objective
-A small group challange visualizing twitter data in a python streamlit app.
+A small group challange visualizing twitter data in a python streamlit dashboard.
 
 ### Partner
 * Holly
 * Mehran
-* Aala
+* Alaa
 * Rafael
 
 
