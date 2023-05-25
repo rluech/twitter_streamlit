@@ -1,7 +1,5 @@
 # Twitter Streamlit Dashboard
 
-
-## Project Intro/Objective
 A small group challange visualizing twitter data in a python streamlit dashboard.
 
 ### Partner
