@@ -168,7 +168,7 @@ if All == False:
         x_time.sort()
         Time = x_time
         df_A = dfJB
-    exact = st.selectbox("choose a Year", Time)
+    exact = st.selectbox("choose a Year", Time, index='All')
 
     Y = hashtags_time(df_A,exact)
     list_hash = []
